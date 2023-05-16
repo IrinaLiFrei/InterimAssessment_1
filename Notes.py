@@ -1,7 +1,7 @@
 #from datetime import datetime
 
 class Notes:
-    #now = datetime.now()
+
     def __init__(self, title, text, time):
         self.title = title
         self.text = text
@@ -16,6 +16,3 @@ class Notes:
     def get_text(self):
         return self.text
     
-
-
-

@@ -21,6 +21,7 @@ def main_menu() -> int:
         print('     Такой команды не существует.')
         return
 
+
 def show_all(db: list):
    if db_success(db):
         for i in range(len(db)):
@@ -55,21 +56,9 @@ def create_note(path, my_list):
         data["Notes"].append(new_note)
     with open (path, 'w', encoding='UTF-8') as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
-    # y = {"title":title,
-    #  "text": text,
-    #  "time": time
-    # }
-    # with open (path, 'a', encoding='UTF-8') as file:
-    #     file.writelines(f'{title}; {text}; {time}\n')
-    # print('     Заметка успешно создана и сохранена.')
-    # my_list.append(new_note)
-    
-    # with open (path, 'a', encoding='UTF-8') as file:
-    #     json.dump(data, file, indent=4, ensure_ascii=False)
-    # with open(path, 'a', encoding='UTF-8') as file:
-    #     print(file.read())
     print('     Заметка успешно создана и сохранена.')
     my_list.append(new_note)
+
 
 def change_note(path, my_list):
     num = int(input('Введите номер заметки для изменения: '))
@@ -82,9 +71,6 @@ def change_note(path, my_list):
         with open(path, 'r', encoding='UTF-8') as f:
             data = json.load(f)
             data["Notes"][num-1] = {'title': title, 'text': text,'time': time}
-        # line[num-1] = title + '; ' + text + '; ' + time + '; ' + '\n'
-        #new_data = data.replace()
-        # data[num-1] = my_list[num-1]
 
         with open(path, 'w', encoding='UTF-8') as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
